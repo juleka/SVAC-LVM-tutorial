@@ -1,0 +1,7 @@
+# Information about the data used in this workshop
+
+In this workshop, we are working with a subset of the [Sexual Violence in Armed Conflict (SVAC) Dataset](http://www.sexualviolencedata.org/). SVAC measures reports of  conflict-related sexual violence committed by armed actors (state forces, pro-government militias and rebel groups) during the years 1989-2009. The dataset includes information about the prevalence, perpetrators, victims, forms, timing, and locations of the reported sexual violence by each armed actor in each conflict-year. The information used to compile these data comes from three separate sources: the U.S. State Department, Amnesty International and Human Rights Watch.
+
+The dataset we will be working with in this tutorial has been reduced to 1917 observations, or "country-years," and 8 variables (columns). In particular, we will be looking exclusively at observations for state forces ("government"), thus excluding country-year observations for rebel groups and pro-government militias. The included variables provide information on a scholar-assigned unique ID for each armed conflict, the country, year, and the type of actor, e.g., government. In addition, you will find three ordinal-scale variables that  measure the prevalence of sexual violence based on reports by Amnesty International ("ai\_prev"), Human Rights Watch ("hrw\_prev"), and the U.S. State Department ("state\_prev").
+
+[Click here](http://www.sexualviolencedata.org/wp-content/uploads/2013/01/SVAC-coding-manual-10-25-13.pdf) for the SVAC codebook and user guide.
