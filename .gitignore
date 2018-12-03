@@ -1,0 +1,11 @@
+# Ju, 2018-12-03
+
+# ignore files
+.Rhistory
+.Rplots
+
+# ignore tmp files
+\~*
+*~
+
+##end.
