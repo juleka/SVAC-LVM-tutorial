@@ -31,6 +31,6 @@ stopifnot(length(data$actor_type==1)==nrow(data))
 data$country_conflict_plot_caption <- paste(data$country, data$conflictid_new)
 
 ## saving the data to a csv file
-write.table(data, file=arguments$outputfile, row.names = FALSE)
+write.table(data, file=arguments$outputfile, sep='|', row.names = FALSE)
 
 ##end of script.
