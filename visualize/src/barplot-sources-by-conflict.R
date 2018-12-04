@@ -30,6 +30,8 @@ barplot_observed_values <- function(id) {
   
   subdata <- data[data$conflictid_new==id,]
   
+  #FIXME: add a test to require a minimum number of observations
+  
   country.name <- unique(subdata$country)
   plot.caption <- unique(subdata$country_conflict_plot_caption)      
   
