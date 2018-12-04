@@ -12,7 +12,6 @@ parser$add_argument("--inputfile", type="character")
 parser$add_argument("--logfile", type="character")
 arguments <- parser$parse_args()
 
-
 ## use this code if not working with a Makefile
 # setwd("~/git/SVAC-LVM-tutorial/")
 # arguments <- list(inputfile="import/output/SVAC_main.csv",
@@ -41,13 +40,18 @@ barplot_observed_values <- function(id) {
   country.name <- gsub("'", "-", country.name)
   country.name <- gsub(" ", "-", country.name)
         
-  outputfile.name <- paste('visualize/output/bp-obs-GOV-', country.name, '-', id, '.pdf', sep='')
+  ## keep this version if working with Makefile
+  outputfile.name <- paste('output/bp-obs-GOV-', country.name, '-', id, '.pdf', sep='')
+
+  ## use this version if working WITHOUT Makefile
+  # outputfile.name <- paste('visualize/output/bp-obs-GOV-', country.name, '-', id, '.pdf', sep='')
         
   pdf(outputfile.name, width=8, height=4)
   par(las=1, mar=c(4,4,1.5,5), xpd=TRUE)
   barplot(t(as.matrix(subdata[,c(prev_vec)])), beside=TRUE, space=c(0,2),
           names.arg = subdata$year, col=prev_colors, 
-          ylab='Prevalence', xlab='', axes=FALSE, las=2)
+          ylab='Prevalence', xlab='', axes=FALSE, las=2, 
+          main=plot.caption)
   axis(2, at=unique(sort(t(as.matrix(subdata[,c(prev_vec)])))))
   legend("topright", inset=c(-.15,0),
                legend = c('AI', 'HRW', 'USSD'), fill = prev_colors)
