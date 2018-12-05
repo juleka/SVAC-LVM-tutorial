@@ -17,9 +17,9 @@ parser$add_argument("--outputfile", type="character")
 arguments <- parser$parse_args()
 
 ## use below lines of code instead if you do not want to run Makefiles
-# setwd("~/git/SVAC-LVM-tutorial/import/")
-# arguments <- list(input='inputfile/SVAC-gov-main.csv', 
-#                   output='outputfile/SVAC_main.csv')
+setwd("~/git/SVAC-LVM-tutorial/import/")
+arguments <- list(input='inputfile/SVAC-gov-main.csv',
+                  output='outputfile/SVAC_main.csv')
 
 ## let's import our data
 data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = FALSE)
