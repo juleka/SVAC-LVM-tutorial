@@ -16,7 +16,7 @@ clean:
 output/SVAC_main.csv: \
 		src/import-check-data-main.R \
 		input/SVAC-gov-main.csv \
-		src/Makefile
+		Makefile
 	Rscript --vanilla $< \
 		--inputfile=input/SVAC-gov-main.csv \
 		--outputfile=$@

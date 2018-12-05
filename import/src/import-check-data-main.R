@@ -17,18 +17,32 @@ parser$add_argument("--outputfile", type="character")
 arguments <- parser$parse_args()
 
 ## use below lines of code instead if you do not want to run Makefiles
-setwd("~/git/SVAC-LVM-tutorial/import/")
-arguments <- list(input='inputfile/SVAC-gov-main.csv',
-                  output='outputfile/SVAC_main.csv')
+# setwd("~/git/SVAC-LVM-tutorial/import/")
+# arguments <- list(inputfile='input/SVAC-gov-main.csv',
+#                   outputfile='output/SVAC_main.csv')
 
 ## let's import our data
 data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = FALSE)
 
-# lets test if we really only have observations (country-years) for the government
+## lets test if we really only have observations (country-years) for the government
 stopifnot(length(data$actor_type==1)==nrow(data))
 
-# lets add a variable that we can use in plotting later
+## lets add a variable that we can use in plotting later
 data$country_conflict_plot_caption <- paste(data$country, data$conflictid_new)
+
+## lets create a rank, i.e., rank conflicts from highest to lowest reported SV prevalence
+data$sum_prev <- rowSums(data[, c('ai_prev', 'hrw_prev', 'state_prev')], na.rm=TRUE)
+
+conflict_prev <- aggregate(data$sum_prev, by=list(data$conflictid_new), sum)
+colnames(conflict_prev) <- c('conflictid_new', 'conflict_prev')
+conflict_prev <- conflict_prev[order(conflict_prev$conflict_prev),]
+conflict_prev$rank <- rank(conflict_prev$conflict_prev)# could also use, ties.method = 'random')
+
+data <- merge(data, conflict_prev, by='conflictid_new')
+table(data$rank)
+
+## delete no longer needed auxiliary columns
+data$sum_prev <- data$conflict_prev <- NULL
 
 ## saving the data to a csv file
 write.table(data, file=arguments$outputfile, row.names = FALSE)
