@@ -9,7 +9,6 @@
 ## if this is what you want to try, keep this code uncommented
 ## if you rather not work with Makefile, comment the below argparse code and 
 ##   uncomment the setwd() and arguments commands below
-
 library(argparse)
 parser <- ArgumentParser()
 parser$add_argument("--inputfile", type="character")
@@ -17,9 +16,9 @@ parser$add_argument("--outputfile", type="character")
 arguments <- parser$parse_args()
 
 ## use below lines of code instead if you do not want to run Makefiles
-# setwd("~/git/SVAC-LVM-tutorial/import/")
-# arguments <- list(inputfile='input/SVAC-gov-main.csv',
-#                   outputfile='output/SVAC_main.csv')
+# setwd("~/git/SVAC-LVM-tutorial/")
+# arguments <- list(inputfile='import/input/SVAC-gov-main.csv', 
+#                   outputfile='import/output/SVAC_main.csv')
 
 ## let's import our data
 data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = FALSE)
@@ -45,6 +44,6 @@ table(data$rank)
 data$sum_prev <- data$conflict_prev <- NULL
 
 ## saving the data to a csv file
-write.table(data, file=arguments$outputfile, row.names = FALSE)
+write.table(data, file=arguments$outputfile, sep='|', row.names = FALSE)
 
 ##end of script.
