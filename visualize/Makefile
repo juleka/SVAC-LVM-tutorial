@@ -22,5 +22,6 @@ output/barplot-sources-by-conflict.txt: \
 		--inputfile=../import/output/SVAC_main.csv \
 		--barplot_function=src/barplot-function.R \
 		--logfile=$@
+	rm Rplots.pdf
 
 ## end.

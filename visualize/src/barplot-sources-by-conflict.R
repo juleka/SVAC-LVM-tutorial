@@ -29,13 +29,40 @@ data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = F
 prev_vec <- c('ai_prev', 'hrw_prev', 'state_prev')
 prev_colors <- c(rgb(1,0,0,.4), rgb(0,0,1,.4), rgb(1,1,0,.4))
 
+## lets plot a few cases for which SV prevalence is reported most
+## these are the 10 most badly ranked cases:
+worst_reported <- sort(unique(data$rank), decreasing=TRUE)[1:10]
 
-for (id in unique(data$conflictid_new)) {
-  barplot_observed_values(id)
+## this is how we make a bargraph for the worst reported case
+par(las=1, mar=c(4,4,1.5,0), xpd=TRUE)
+barplot(t(as.matrix(data[data$rank==worst_reported[1], c(prev_vec)])), beside=TRUE, space=c(0,2),
+        names.arg = data[data$rank==worst_reported[1], 'year'], col=prev_colors, 
+        ylab='Prevalence', xlab='', axes=FALSE, las=2, 
+        main=unique(data[data$rank==worst_reported[1], 'country_conflict_plot_caption']))
+axis(2, at=unique(sort(t(as.matrix(data[,c(prev_vec)])))))
+legend("topleft", bty='n',
+       legend = c('AI', 'HRW', 'USSD'), fill = prev_colors)
+dev.off()
+
+## this is how we make a bargraph for the second worst reported case
+par(las=1, mar=c(4,4,1.5,0), xpd=TRUE)
+barplot(t(as.matrix(data[data$rank==worst_reported[2], c(prev_vec)])), beside=TRUE, space=c(0,2),
+        names.arg = data[data$rank==worst_reported[2], 'year'], col=prev_colors, 
+        ylab='Prevalence', xlab='', axes=FALSE, las=2, 
+        main=unique(data[data$rank==worst_reported[2], 'country_conflict_plot_caption']))
+axis(2, at=unique(sort(t(as.matrix(data[,c(prev_vec)])))))
+legend("topleft", bty='n',
+       legend = c('AI', 'HRW', 'USSD'), fill = prev_colors)
+dev.off()
+
+## you can manually create as many bargraphs as you like
+## save them with the pdf function, see src/barplot-function.R for an example
+
+## lets automatically create barplots for the 10 worst reported cases
+for (i in worst_reported) {
+  barplot_observed_values(i)
 }
 
 print("FINISHED RUNNING src/barplot-sources-by-conflict.R")
 
 ## end of script.
-
-

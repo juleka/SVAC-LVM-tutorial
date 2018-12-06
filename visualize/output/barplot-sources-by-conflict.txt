@@ -1,0 +1,16 @@
+null device 
+          1 
+null device 
+          1 
+[1] "Wrote graph to output/bp-obs-GOV-Sudan-309.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-DR-Congo-Zaire-283.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-India-364.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-Burundi-287.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-Sri-Lanka-Ceylon-352.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-Chad-288.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-Iraq-259.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-Uganda-314.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-Central-African-Republic-416.pdf"
+[1] "Wrote graph to output/bp-obs-GOV-Nigeria-297.pdf"
+[2] "Wrote graph to output/bp-obs-GOV-Somalia-337.pdf"
+[1] "FINISHED RUNNING src/barplot-sources-by-conflict.R"
