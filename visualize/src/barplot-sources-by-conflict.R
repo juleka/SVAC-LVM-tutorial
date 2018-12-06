@@ -58,9 +58,12 @@ dev.off()
 ## you can manually create as many bargraphs as you like
 ## save them with the pdf function, see src/barplot-function.R for an example
 
+## lets get the conflict_ids for the worst reported cases, because two conflicts are ranked 158.5
+reported_worst_conflicts <- unique(data[data$rank %in% worst_reported, 'conflictid_new'])
+
 ## lets automatically create barplots for the 10 worst reported cases
-for (i in worst_reported) {
-  barplot_observed_values(i)
+for (id in reported_worst_conflicts) {
+  barplot_observed_values(id)
 }
 
 print("FINISHED RUNNING src/barplot-sources-by-conflict.R")

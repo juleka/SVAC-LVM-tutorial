@@ -5,11 +5,10 @@
 ## Purpose: a function to automate the generation of a select set of barplots
 ## ---------------------------------
 
-barplot_observed_values <- function(ranked) {
+barplot_observed_values <- function(id) {
   
-  subdata <- data[data$rank==ranked,]
+  subdata <- data[data$conflictid_new==id,]
   
-  conflict_id <- unique(subdata$conflictid_new)
   country.name <- unique(subdata$country)
   plot.caption <- unique(subdata$country_conflict_plot_caption)      
   
@@ -21,10 +20,10 @@ barplot_observed_values <- function(ranked) {
   country.name <- gsub(" ", "-", country.name)
   
   ## keep this version if working with Makefile
-  outputfile.name <- paste('output/bp-obs-GOV-', country.name, '-', conflict_id, '.pdf', sep='')
+  outputfile.name <- paste('output/bp-obs-GOV-', country.name, '-', id, '.pdf', sep='')
   
   ## use this version if working WITHOUT Makefile
-  # outputfile.name <- paste('visualize/output/bp-obs-GOV-', country.name, '-', conflict_id, '.pdf', sep='')
+  # outputfile.name <- paste('visualize/output/bp-obs-GOV-', country.name, '-', id, '.pdf', sep='')
   
   pdf(outputfile.name, width=8, height=4)
   par(las=1, mar=c(4,4,1.5,5), xpd=TRUE)
