@@ -10,7 +10,7 @@ barplot_observed_values <- function(id) {
   subdata <- data[data$conflictid_new==id,]
   
   country.name <- unique(subdata$country)
-  plot.caption <- unique(subdata$country_conflict_plot_caption)      
+  plot.caption <- paste(unique(subdata$country_conflict_plot_caption), '- rank:', unique(subdata$rank))      
   
   ##clean up country names a bit to improve file names
   country.name <- gsub("\\(", "", country.name)
