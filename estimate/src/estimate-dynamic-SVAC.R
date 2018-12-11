@@ -45,8 +45,6 @@ for(ii in 2:nrow(data)){
   }
 }
 
-print(panel_index_lag)
-
 ## state_prev ai_prev hrw_prev
 state <- data$state_prev + 1
 ai    <- data$ai_prev + 1
