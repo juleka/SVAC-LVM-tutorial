@@ -1,5 +1,5 @@
-## Authors:      CJF
-## Maintainers:  CJF, Ju
+## Authors:      CJF, Ju
+## Maintainers:  Ju
 ##
 ## ---------------------------------
 ## Purpose: calculate static SVAC model
