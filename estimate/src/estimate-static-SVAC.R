@@ -8,8 +8,6 @@
 library(argparse)
 library(yaml)
 library(rstan)
-#library(loo)
-#library(coda)
 
 rm(list=ls())
 
@@ -18,20 +16,23 @@ parser    <- ArgumentParser()
 parser$add_argument("--inputfile", type='character')
 parser$add_argument("--STANcode", type='character')
 parser$add_argument("--CONSTANTS", type='character')
+parser$add_argument("--model_functions", type='character')
 parser$add_argument("--outputfile", type='character')
-parser$add_argument("--outSTANfull", type='character')
 arguments <- parser$parse_args()
 
 ## declare arguments if not working with Makefile
 # setwd("~/git/SVAC-LVM-tutorial/")
 # arguments <- list(inputfile='import/output/SVAC_main.csv',
 #                   STANcode='estimate/src/SVAC_static.stan',
+#                   model_functions='estimate/src/model-functions.R',
 #                   CONSTANTS='estimate/hand/CONSTANTS.yaml',
-#                   outputfile='estimate/output/SVAC_static_est.csv',
-#                   outSTANfull='estimate/output/SVAC_static_full.rds')
+#                   outputfile='estimate/output/SVAC_static_est.csv')
 
 #the CONSTANTS in the yaml file will declare some additional STAN parameters 
 CONSTANTS <- yaml.load_file(arguments$CONSTANTS)
+
+# let's read in some additional functions that will help us plot different model aspects
+source(arguments$model_functions)
 
 data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = FALSE)
 
@@ -84,7 +85,8 @@ stan.data <- list(
 ##  you can pick a seed at random, set it in the CONSTANTS file
 set.seed(CONSTANTS$random_seed)
 
-#create fitted object to pass into Stan
+## STAN passes the simulated values back to R in the form of a list, 
+##   putting all the chains into separate arrays
 static.stan.fit <- stan(
   file=arguments$STANcode,
   data=stan.data,
@@ -101,17 +103,26 @@ static.stan.fit <- stan(
   cores=CONSTANTS$static_STAN_cores
 )
 
-#STAN passes the simulated values back to R in the form of a list, putting all the chains into separate arrays
-saveRDS(static.stan.fit, file=arguments$outSTANfull)
+## if you like, you can save this stan object like so: (just fyi, it is usually quite big)
+# saveRDS(static.stan.fit, file='output/stan-fit-full.rds')
+
+## we use the Rhat plot function to check if the model converted, the Rhat's have to be below 1.1
+make_Rhat_plot(static.stan.fit, 'static')
+
+# here we extract just the parameters that are interesting to us
+## staticstanout gives us a list of model parameters, i.e., theta and the category cut points
 staticstanout <- extract(static.stan.fit)
 
-## staticstanout gives us a list of model parameters 
-##  theta is the latent variable, we want its mean, std, upper and lower bounds for plotting later
+## let's plot the cutpoints for the different categories that the model estimated
+##  using a function we read in earlier
+plot_cutpoints_by_source(staticstanout, 'static')
+
+## theta is the latent variable, we want its mean, std, upper and lower bounds for plotting later
 data$theta       <- apply(staticstanout$theta, 2, mean)
 data$theta_sd    <- apply(staticstanout$theta, 2, sd)
 #CREDIBLE intervals (CI)
 data$theta_upper <- apply(staticstanout$theta, 2, quantile, 0.975)
 data$theta_low   <- apply(staticstanout$theta, 2, quantile, 0.025)
 
-write.table(data, arguments$output, sep="|", row.names = FALSE)
+write.table(data, arguments$outputfile, sep="|", row.names = FALSE)
 ##end of Rscript.

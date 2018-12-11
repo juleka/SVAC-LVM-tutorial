@@ -7,13 +7,13 @@ static_STAN_iter: 2000
 static_STAN_chains: 4
 
 ##set the number of cores based on the specifications of your machine
-static_STAN_cores: 4
+static_STAN_cores: 2
 
 dynamic_STAN_iter: 2000
 
 dynamic_STAN_chains: 4
 
 ##set the number of cores based on the specifications of your machine
-dynamic_STAN_cores: 4
+dynamic_STAN_cores: 2
 
 #end.
