@@ -1,0 +1,50 @@
+'data.frame':	1917 obs. of  14 variables:
+ $ conflictid_new               : int  205 205 205 205 205 205 205 205 205 205 ...
+ $ actor_type                   : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ actor                        : chr  "Government" "Government" "Government" "Government" ...
+ $ year                         : int  1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 ...
+ $ country                      : chr  "Iran" "Iran" "Iran" "Iran" ...
+ $ ai_prev                      : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ hrw_prev                     : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ state_prev                   : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ country_conflict_plot_caption: chr  "Iran 205" "Iran 205" "Iran 205" "Iran 205" ...
+ $ rank                         : num  40 40 40 40 40 40 40 40 40 40 ...
+ $ theta                        : num  0.124 -0.0358 -0.059 -0.1202 -0.0649 ...
+ $ theta_sd                     : num  0.2 0.22 0.228 0.238 0.227 ...
+ $ theta_upper                  : num  0.503 0.358 0.351 0.309 0.339 ...
+ $ theta_low                    : num  -0.297 -0.497 -0.543 -0.641 -0.554 ...
+NULL
+[1] "Unique conflicts to work on: 11"
+[1] "Now working on Iraq 259"
+[1] "set plotting parameters"
+[1] "Iraq 259"
+[1] "Now working on DR Congo (Zaire) 283"
+[1] "set plotting parameters"
+[1] "DR Congo (Zaire) 283"
+[1] "Now working on Burundi 287"
+[1] "set plotting parameters"
+[1] "Burundi 287"
+[1] "Now working on Chad 288"
+[1] "set plotting parameters"
+[1] "Chad 288"
+[1] "Now working on Nigeria 297"
+[1] "set plotting parameters"
+[1] "Nigeria 297"
+[1] "Now working on Sudan 309"
+[1] "set plotting parameters"
+[1] "Sudan 309"
+[1] "Now working on Uganda 314"
+[1] "set plotting parameters"
+[1] "Uganda 314"
+[1] "Now working on Somalia 337"
+[1] "set plotting parameters"
+[1] "Somalia 337"
+[1] "Now working on Sri Lanka (Ceylon) 352"
+[1] "set plotting parameters"
+[1] "Sri Lanka (Ceylon) 352"
+[1] "Now working on India 364"
+[1] "set plotting parameters"
+[1] "India 364"
+[1] "Now working on Central African Republic 416"
+[1] "set plotting parameters"
+[1] "Central African Republic 416"
