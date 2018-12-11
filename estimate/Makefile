@@ -19,8 +19,7 @@ output/SVAC_static_est.csv: \
 		../import/output/SVAC_main.csv \
 		src/SVAC_static.stan \
 		src/model-functions.R \
-		hand/CONSTANTS.yaml \
-		Makefile
+		hand/CONSTANTS.yaml
 	Rscript --vanilla $< \
 		--inputfile=../import/output/SVAC_main.csv \
 		--STANcode=src/SVAC_static.stan \
@@ -33,8 +32,7 @@ output/SVAC_dynamic_est.csv: \
 		../import/output/SVAC_main.csv \
 		src/SVAC_dynamic.stan \
 		src/model-functions.R \
-		hand/CONSTANTS.yaml \
-		Makefile
+		hand/CONSTANTS.yaml
 	Rscript --vanilla $< \
 		--inputfile=../import/output/SVAC_main.csv \
 		--STANcode=src/SVAC_dynamic.stan \
