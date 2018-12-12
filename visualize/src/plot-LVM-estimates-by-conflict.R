@@ -36,12 +36,13 @@ make_plots_for_LVM_estimates <- function(type) {
   ## this time, we will plot our estimates for a few cases in which SV is reported most prevalent
   ## these are the 10 most badly ranked cases:
   worst_reported <- sort(unique(data$rank), decreasing=TRUE)[1:10]
-  
   ## these are their conflict ids:
   reported_worst_conflicts <- unique(data[data$rank %in% worst_reported, 'conflictid_new'])
-  
   print(paste("Unique conflicts to work on:", length(reported_worst_conflicts)))
   
+  ## you can always change for which conflicts you plot results
+  ## for example, to make a plot for every conflict, change the next line to:
+  ## for (i in unique(data$conflictid_new)) {
   for (i in reported_worst_conflicts) {
     print(paste('Now working on', unique(data[data$conflictid_new==i, 'country']), i))
     
