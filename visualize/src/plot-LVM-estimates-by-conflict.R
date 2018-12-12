@@ -7,8 +7,6 @@
 ## ---------------------------------
 
 library(argparse)
-library(RColorBrewer)
-library(colorRamps)
 
 ## use this code if not working with a Makefile 
 # setwd("~/git/SVAC-LVM-tutorial/")
@@ -76,6 +74,8 @@ make_plots_for_LVM_estimates <- function(type) {
 
     axis(1, at = seq(xmin, xmax, by=1))
     axis(2, at = seq(ymin, ymax, by = 1))
+    
+    ## FIXME: do not like how this abline looks
     abline(h=0, lty=3)
     
     points(pdata$year, pdata$theta, col='black', pch=16)
