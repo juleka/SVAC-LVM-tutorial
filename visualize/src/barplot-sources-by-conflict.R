@@ -19,8 +19,10 @@ arguments <- parser$parse_args()
 #                   barplot_function="visualize/src/barplot-function.R",
 #                   logfile="visualize/output/barplot-sources-by-conflict.txt")
 
-# create a log file of this task 
+## read in plotting functions
 source(arguments$barplot_function)
+
+# create a log file of this task 
 sink(arguments$logfile)
 
 data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = FALSE)
