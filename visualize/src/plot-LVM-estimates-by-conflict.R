@@ -71,7 +71,8 @@ make_plots_for_LVM_estimates <- function(type) {
     ## first, we create an empty plot, we will fill it later
     plot(NULL, type="n", bty='n', xlab="", ylab="Prevalence", 
          xlim=c(xmin, xmax), ylim = c(ymin,ymax), xaxt='n', yaxt='n',
-         main=paste(unique(pdata$country),unique(pdata$conflictid_new), 'Government'))
+         main=paste('Estimated Prevalence of Reported Sexual Violence for Government of', 
+                    unique(pdata$country),unique(pdata$conflictid_new)))
 
     axis(1, at = seq(xmin, xmax, by=1))
     axis(2, at = seq(ymin, ymax, by = 1))
@@ -79,16 +80,10 @@ make_plots_for_LVM_estimates <- function(type) {
     ## FIXME: do not like how this abline looks
     abline(h=0, lty=3)
     
-    points(pdata$year, pdata$theta, col='black', pch=16)
+    points(pdata$year, pdata$theta, col='black', pch=15)
     arrows(pdata$year, pdata$theta_low, pdata$year, pdata$theta_upper, length=0, angle=90, 
              col='black', lwd=2.5)
-    
-    # legend('topright', inset=c(-.25,0), 
-    #        c(paste("observed", unique(pdata$actor)[1:length(unique(pdata$actor))]), 
-    #          paste("estimated", unique(pdata$actor)[1:length(unique(pdata$actor))])),
-    #        col='black',  pch=16,
-    #        bty='n',  cex=1.5 #cex=.75#,
-    # )
+  
     dev.off()
   }
 }

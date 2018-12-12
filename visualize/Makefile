@@ -34,5 +34,5 @@ output/log-plot-static-estimates.txt: \
 		--input_dynamic=../estimate/output/SVAC_dynamic_est.csv \
 		--logfile_static=$@ \
 		--logfile_dynamic=output/log-plot-dynamic-estimates.txt
-	rm Rplots.pdf
+	#rm Rplots.pdf
 ## end.
