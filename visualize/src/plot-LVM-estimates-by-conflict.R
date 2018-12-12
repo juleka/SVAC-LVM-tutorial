@@ -64,22 +64,25 @@ make_plots_for_LVM_estimates <- function(type) {
     outputfile_name <- paste('output/pp-', type, '-estimates-', country, '-', i, '.pdf', sep='')
     
     pdf(outputfile_name, width=15, height=6)
-    par(las=1,  mar=c(4,4,1.5,12), xpd=TRUE)
+    par(las=1,  mar=c(4,4,1.5,1), xpd=FALSE)
     print('set plotting parameters')
     print(paste(unique(pdata$country),unique(pdata$conflictid_new)))
     
     ## first, we create an empty plot, we will fill it later
     plot(NULL, type="n", bty='n', xlab="", ylab="Prevalence", 
          xlim=c(xmin, xmax), ylim = c(ymin,ymax), xaxt='n', yaxt='n',
-         main=paste('Estimated Prevalence of Reported Sexual Violence for Government of', 
-                    unique(pdata$country),unique(pdata$conflictid_new)))
+         main=paste('Point Estimate of Prevalence of Reported Sexual Violence for Government of', 
+                    unique(pdata$country),unique(pdata$conflictid_new), 
+                    '(with credible intervals)'))
 
+    #add x and y-axes
     axis(1, at = seq(xmin, xmax, by=1))
     axis(2, at = seq(ymin, ymax, by = 1))
     
-    ## FIXME: do not like how this abline looks
+    #add a horizontal line at y=zero
     abline(h=0, lty=3)
     
+    #add estimate point and credible intervals
     points(pdata$year, pdata$theta, col='black', pch=15)
     arrows(pdata$year, pdata$theta_low, pdata$year, pdata$theta_upper, length=0, angle=90, 
              col='black', lwd=2.5)
