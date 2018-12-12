@@ -72,7 +72,7 @@ make_plots_for_LVM_estimates <- function(type) {
     plot(NULL, type="n", bty='n', xlab="", ylab="Prevalence", 
          xlim=c(xmin, xmax), ylim = c(ymin,ymax), xaxt='n', yaxt='n',
          main=paste('Point Estimate of Prevalence of Reported Sexual Violence for Government of', 
-                    unique(pdata$country),unique(pdata$conflictid_new), 
+                    unique(pdata$country), 'in conflict', unique(pdata$conflictid_new), 
                     '(with credible intervals)'))
 
     #add x and y-axes
