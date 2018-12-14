@@ -12,6 +12,8 @@ all: \
 
 output/SVAC-LVM-workshop-slides.pdf: \
 		src/SVAC-LVM-workshop-slides.tex \
+		hand/*.jpg \
+		hand/*.jpeg \
 		Makefile
 	pdflatex src/SVAC-LVM-workshop-slides.tex
 	pdflatex src/SVAC-LVM-workshop-slides.tex
