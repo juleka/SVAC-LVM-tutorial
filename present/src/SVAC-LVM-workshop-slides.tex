@@ -19,7 +19,7 @@
 
 \title{Using Latent Variable Models to Estimate the Prevalence of Sexual Violence in Armed Conflict: An Introduction}
 \author{Jule Kr\"{u}ger, \\ Center for Political Studies, University of Michigan\\[.5cm]
-\emph{Conference on Empirical and Computational Social Sciences in India}\\[.5cm] Ashoka University, December 15, 2018}
+\emph{Workshop on Empirical and Computational Social Sciences in India}\\[.5cm] Ashoka University, December 15, 2018}
 \date{}
 \begin{document}
 
@@ -70,20 +70,55 @@ All of these issues vary over space and time.
 \frame{\frametitle{Why the Observation of Wartime Sexual Violence May Improve over Time}
 
 \begin{itemize}
-\item Improved documentation practices
 \item Increasing international focus
 \item Changing norms and perceptions of survivors
 \item Recent challenges to societal taboos
 \item Growing initiatives to empower survivors to speak out
 \item Changes in the wording of sexual violence experiences leading to more explicit descriptions
+\item Growth in documentation efforts paired with improved documentation practices
 \end{itemize}
 
 While these trends  vary across space, we will likely see higher reporting rates in some places  over time.
 
 }
 
+\frame{\frametitle{How We Currently Measure Wartime Sexual Violence}
 
-\frame{\frametitle{}}
+\begin{figure}
+\includegraphics[width=9cm]{hand/SVAC-home.png}
+\caption{SVAC, \url{http://www.sexualviolencedata.org/}}
+\end{figure}
+}
+
+\frame{Let's import the data into R and take a look at it:
+
+{\tt \$: cd \textasciitilde/git/SVAC-LVM-tutorial/import}\\
+
+{\tt \$: open -a Rstudio src/import-check-data-main.R}
+
+
+}
+
+
+
+\begin{frame}[label=SUDAN-obs]
+\frametitle{SVAC Provides Three Indicators that Report Prevalence of Wartime Sexual Violence}
+\begin{figure}\centering
+\includegraphics[width=11cm]{../visualize/output/bp-obs-GOV-Sudan-309.pdf}
+\caption{Reported level of engagement in wartime sexual violence by state forces in Sudan according to three sources \hyperlink{SUDAN-est}{\beamerbutton{est}}}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[label=DRC-obs]
+\frametitle{Another Case... }
+\begin{figure}\centering
+\includegraphics[width=11cm]{../visualize/output/bp-obs-GOV-DR-Congo-Zaire-283.pdf}
+\caption{Reported level of engagement in wartime sexual violence by state forces in DRC according to three sources \hyperlink{DRC-est}{\beamerbutton{est}}}
+\end{figure}
+\end{frame}
+
+\frame{\frametitle{The promise of latent variable models for measuring sexual violence}}
 %% theoretical construct of interest: prevalence of sexual violence committed by GOV troups
 %% assumption that there is an underlying latent trait that can be estimated using observed outcomes (items/responses/reports)
 %% standard ordinal item response model: ordinal indicators
@@ -94,9 +129,6 @@ While these trends  vary across space, we will likely see higher reporting rates
 
 
 
-% \begin{frame}[label=]
-% \hyperlink{label}{\beamerbutton{buttonname}}
-% \end{frame}
 
 
 \end{document}
