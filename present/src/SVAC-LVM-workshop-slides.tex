@@ -85,8 +85,8 @@ While these trends  vary across space, we will likely see higher reporting rates
 \frame{\frametitle{How We Currently Measure Wartime Sexual Violence}
 
 \begin{figure}
-\includegraphics[width=9cm]{hand/SVAC-home.png}
-\caption{SVAC, \url{http://www.sexualviolencedata.org/}}
+\includegraphics[width=8.5cm]{hand/SVAC-home.png}
+\caption{SVAC, based on human-coded annual human rights reports \url{http://www.sexualviolencedata.org/}}
 \end{figure}
 }
 
@@ -126,6 +126,17 @@ Let's make some more barplots of reported state behavior for other armed conflic
 \item[{\tt \$:}] {\tt cd ../visualize}
 \item[{\tt \$:}] {\tt open -a Rstudio  src/barplot-sources-by-conflict.R}
 \end{itemize}
+
+}
+
+\frame{\frametitle{For Every Conflict-Year, We Have Three Sources Reporting on SVAC Prevalence}
+\begin{itemize}
+\item For many years, the three prevalence measures diverge (e.g., Sudan 2006, DRC 1998)
+\item In other years, the three sources seem to agree (e.g., Sudan 2001-2, DRC 2011)
+\item In a considerable number of  years (when looking at the entire dataset), the three sources do not report any SV (e.g., Sudan 1990-1) 
+\end{itemize}
+
+How do we deal with converging/diverging information across the three sources? Shall we average across them, or should we choose the most common/lowest/highest level?
 
 }
 
