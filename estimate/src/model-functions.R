@@ -7,8 +7,8 @@
 
 make_Rhat_plot <- function(stan_data_out, model_name) {
   
-  ## this function is run on the data object that comes straight
-  ## out of stan
+  ## stan_data_out: name of the data object that came straight out of stan
+  ## model_name: 'static' or 'dynamic', depending on which model is being estimated
   
   output_file_name <- paste('output/gg-rhat-SVAC-', model_name, '.pdf', sep='')
   print(paste('plotting rhats to' , output_file_name))
@@ -20,8 +20,8 @@ make_Rhat_plot <- function(stan_data_out, model_name) {
 
 plot_cutpoints_by_source <- function(extracted_fit, model_name) {
   
-  ## this model is run on the object that was extracted from the stan object
-  ## model_name: static, dynamic, static-subset, dynamic-subset
+  ## extracted_fit: name of the object that was extracted from the stan object
+  ## model_name: 'static' or 'dynamic', depending on which model is being estimated
   
   source_names <- c('ai', 'hrw', 'state')
   
@@ -50,6 +50,5 @@ plot_cutpoints_by_source <- function(extracted_fit, model_name) {
     dev.off()
   }
 }
-
 
 ## end of script.
