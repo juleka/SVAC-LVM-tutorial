@@ -222,14 +222,14 @@ For time constraints, we will limit our tutorial to LVM implementation in R.
 
 \frame{\frametitle{Checking Model Convergence}
 
-We can check whether our model converged successfully by plotting the R-hat statistic. 
+We can check whether our model converged successfully by plotting the Rhat statistic. 
 
-If the R-hat values remain below 1.1, we conclude model convergence has occurred.
+If the Rhat values remain below 1.1, we conclude model convergence has occurred.
 
 If the values are above 1.1, we would rerun the model with a higher number of iterations until we reach convergence.
 }
 
-\frame{\frametitle{An R-hat Plot for the Static LVM}
+\frame{\frametitle{An Rhat Plot for the Static LVM}
 
 
 \begin{figure}\centering
@@ -277,9 +277,26 @@ If the values are above 1.1, we would rerun the model with a higher number of it
 \end{frame}
 
 \frame{\frametitle{The Local Independence Assumption in a Static Model}
+
+Item-Response Theory requires us to assume local independence in LVMs:
+
+\begin{itemize}
+\item[(1)] local indepedence of different indicators within the same conflict-year,
+\item[(2)] local independence of indicators across conflicts within years,
+\item[(3)] local independence of indicators across years within countries.
+\end{itemize}
 }
 
 \frame{\frametitle{Relaxing the (3) Local Independence Assumption in a Dynamic Model}
+
+We relax the (3) local independence assumption to estimate a dynamic model.
+
+\begin{itemize}
+\item Empirical conflict research shows that the level of  political violence in a given year often depends on the level of political violence in the previous year.
+\item It is similarily plausible that observational challenges are time-dependent in this way.
+\end{itemize}
+
+In a dynamic model, we specify hierarchical priors for each $\theta_{it}$ that allow the estimated latent level of wartime sexual violence in a given conflict-year to depend on that conflict's value in the previous year.
 }
 
 \begin{frame}[label=SUDAN-dynamic]
