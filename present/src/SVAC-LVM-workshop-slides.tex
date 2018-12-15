@@ -167,11 +167,46 @@ The logic of latent variable models (LVM) follows precisely this conceptual appr
 
 }
 
-\frame{\frametitle{Parametrizing LVMs}
+\frame{\frametitle{Parametrizing a LVM to Estimate SVAC, I}
 
-Let's assume that the observed human rights reports for each conflict-year are functions of a unidimensional latent variable that represents the level of SVAC.
+(Cf.\ \href{http://cfariss.com/documents/SchnakenbergFariss2014PSRM.pdf}{Schnakenberg and Fariss (2014:7-10)} for details.)
+
+We assume that the observed human rights reports for each conflict-year are functions of a unidimensional latent variable $\theta$ that represents the level of SVAC.
+
+For each conflict-year observation, we index conflicts with $i$ and years with $t$.
+
+For each model, we have three ordinal indicators $J$ with levels 0 (no reports), 1 (some), 2 (several/many), and 3 (massive). 
 
 }
+
+\frame{\frametitle{Parametrizing a LVM to Estimate SVAC, II}
+
+The observed values of each indicator (or, ``item'') are denoted as $y_{itj}$ for a given conflict-year and assumed to depend on $\theta_{it}$.
+
+Using these observed values, our goal is to estimate $\theta_{it}$, i.e., the latent SVAC prevalence in conflict $i$ in year $t$.
+
+For each item (i.e., indicator), we estimate an ``item discrimination'' parameter $\beta_{j}$ and a set of $K_{j}-1$ difficulty cut-points $(\alpha_{jk})^{k_{j}}_{k=1}$. (We will plot these cut-points later on.)
+
+}
+
+\frame{\frametitle{Parametrizing a LVM to Estimate SVAC, III}
+
+There is also an error term $\varepsilon_{itj}$ for each item, which in our case represents observational challenges and coding errors. 
+We assume that the error terms are independently drawn from a logistic distribution.
+
+The error term expresses the likelihood of our model.
+
+}
+
+\frame{\frametitle{Estimating a Latent Variable Model}
+
+Following our parametrization, we can derive a probability distribution for a given response  to item $j$, and a likelihood function for $\beta$, $\alpha$ and $\theta$ given the data.
+
+If you are interested in the math, please refer to Schnakenberg and Fariss (2014: 7-8). For time constraints, we will limit our tutorial to LVM implementation in R.
+
+}
+
+
 
 \frame{\frametitle{Let's Run Some LVMs!}
 
