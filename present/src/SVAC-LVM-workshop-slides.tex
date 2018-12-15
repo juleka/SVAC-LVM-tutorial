@@ -86,14 +86,14 @@ While these trends  vary across space, we will likely see higher reporting rates
 
 \begin{figure}
 \includegraphics[width=8.5cm]{hand/SVAC-home.png}
-\caption{SVAC, based on human-coded annual human rights reports \url{http://www.sexualviolencedata.org/}}
+\caption{Three ordinal SVAC variables based on human-coded annual human rights reports \url{http://www.sexualviolencedata.org/}}
 \end{figure}
 }
 
 \frame{Let's import the data into R and take a look at it:
 
 \begin{itemize}
-\item[{\tt \$:}] {\tt cd \textasciitilde/git/SVAC-LVM-tutorial/import}\\
+\item[{\tt \$:}] {\tt cd \textasciitilde/git/SVAC-LVM-tutorial/import}
 \item[{\tt \$:}]  {\tt open -a Rstudio src/import-check-data-main.R}
 \end{itemize}
 
@@ -140,18 +140,29 @@ How do we deal with converging/diverging information across the three sources? S
 
 }
 
-\frame{\frametitle{What If We Understand}}
+\frame{\frametitle{What If, for a Given Conflict-Year, We Understand}
 
 
 \begin{itemize}
-\item Convergence/Divergence of information is a measure of our certainty regarding SVAC level in a given year
-\item 
-\item
+\item True SVAC prevalence as a \emph{latent trait} that can't be observed directly but estimated
+\item Available human rights reports  as imperfect SVAC measures due to observational challenges
+\item Human-coded SVAC variables as imperfect measures of human rights reports due to coding error
+\item Information convergence/divergence across sources as a measure of certainty regarding SVAC prevalence
 \end{itemize}
 
-This is the promise of latent variable models (LVM) for measuring wartime sexual violence
+The logic of latent variable models (LVM) builds on precisely this conceptual approach to measurement. 
 }
 
+\frame{\frametitle{The Added Value of Latent Variable Models}
+
+\begin{itemize}
+\item Provide probabilistic estimates of a latent trait, i.e., SVAC in our case 
+\item Express  our  uncertainty  regarding the estimates of the latent trait through credible intervals 
+\item Compute the estimated latent trait at the interval-level (instead of ordinal), which simplifies subsequent analysis 
+\item Enable direct probabilistic comparisons across conflict-years and cases
+\end{itemize}
+
+}
 
 
 \frame{
