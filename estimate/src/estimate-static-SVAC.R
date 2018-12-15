@@ -110,10 +110,10 @@ static.stan.fit <- stan(
 make_Rhat_plot(static.stan.fit, 'static')
 
 # here we extract just the parameters that are interesting to us
-## staticstanout gives us a list of model parameters, i.e., theta and the category cut points
+## staticstanout gives us a list of model parameters, i.e., theta, beta and the alpha difficulty cut points
 staticstanout <- extract(static.stan.fit)
 
-## let's plot the cutpoints for the different categories that the model estimated
+## let's plot the cut points that the model estimated
 ##  using a function we read in earlier
 plot_cutpoints_by_source(staticstanout, 'static')
 
