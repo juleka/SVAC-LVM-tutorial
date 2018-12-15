@@ -239,6 +239,9 @@ If the values are above 1.1, we would rerun the model with a higher number of it
 
 \frame{\frametitle{Plotting the $\alpha$ Difficulty Cut-Points}
 
+%% The high cutpoints are to be expected because most of the latent variable mass is at 0. 
+%% These cut points push up just a small number of units. 
+
 \begin{figure}
 \subfigure[AI]{\includegraphics[width=3.5cm]{../estimate/output/bp-cp-static-ai.pdf}}
 \subfigure[HRW]{\includegraphics[width=3.5cm]{../estimate/output/bp-cp-static-hrw.pdf}}
@@ -258,16 +261,16 @@ If the values are above 1.1, we would rerun the model with a higher number of it
 \frametitle{Static Estimates of the Latent Prevalence of Wartime Sexual Violence}
 \begin{figure}\centering
 \includegraphics[width=11cm]{../visualize/output/pp-static-estimates-Sudan-309.pdf}
-\caption{Estimated level of engagement in wartime sexual violence by state forces in Sudan \hyperlink{SUDAN-obs}{\beamerbutton{obs}}}
+\caption{Estimated level of engagement in wartime sexual violence by state forces in Sudan \hyperlink{SUDAN-obs}{\beamerbutton{obs}}\hyperlink{SUDAN-dynamic}{\beamerbutton{dynamic}}}
 \end{figure}
 \end{frame}
 
 
 \begin{frame}[label=DRC-static]
-\frametitle{Our Second Worst Case... }
+\frametitle{Static Estimates for Our Second Worst Case}
 \begin{figure}\centering
 \includegraphics[width=11cm]{../visualize/output/pp-static-estimates-DR-Congo-Zaire-283.pdf}
-\caption{Estimated level of engagement in wartime sexual violence by state forces in DRC \hyperlink{DRC-obs}{\beamerbutton{obs}}}
+\caption{Estimated level of engagement in wartime sexual violence by state forces in DRC \hyperlink{DRC-obs}{\beamerbutton{obs}}\hyperlink{DRC-dynamic}{\beamerbutton{dynamic}}}
 \end{figure}
 \end{frame}
 
@@ -275,6 +278,62 @@ If the values are above 1.1, we would rerun the model with a higher number of it
 }
 
 \frame{\frametitle{Relaxing the (3) Local Independence Assumption in a Dynamic Model}
+}
+
+\begin{frame}[label=SUDAN-dynamic]
+\frametitle{Dynamic Estimates of the Latent Prevalence of Wartime Sexual Violence}
+\begin{figure}\centering
+\includegraphics[width=11cm]{../visualize/output/pp-dynamic-estimates-Sudan-309.pdf}
+\caption{Estimated level of engagement in wartime sexual violence by state forces in Sudan \hyperlink{SUDAN-static}{\beamerbutton{static}}}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[label=DRC-dynamic]
+\frametitle{Dynamic Estimates for the DRC}
+\begin{figure}\centering
+\includegraphics[width=11cm]{../visualize/output/pp-dynamic-estimates-DR-Congo-Zaire-283.pdf}
+\caption{Estimated level of engagement in wartime sexual violence by state forces in DRC \hyperlink{DRC-static}{\beamerbutton{static}}}
+\end{figure}
+\end{frame}
+
+
+\frame{\frametitle{Current State of this Research Project}
+
+\begin{itemize}
+\item Our goal is to develop a LVM approach to measurement for Wartime Sexual Violence. 
+
+\item Currently, our main concern are the many conflict-years with zero observations, i.e., no reports of sexual violence.
+
+\begin{itemize}
+\item Did observational challenges impede our registration of sexual-violence conflict events?
+\item Or, was there truly no conflict-related use of sexual violence?
+\end{itemize}
+
+\end{itemize}
+}
+
+
+\frame{\frametitle{Planned Next Steps}
+
+
+\begin{itemize}
+\item Include more indicators of wartime sexual violence 
+\item Include measures of ``openness''/observability, such as freedom of press, local civil society, total number of sexual violence related news reports, etc.
+\item Measure the level of event/actor/location (dis)agreement across human rights reports using text analysis
+\item Explore the use of Bayesian Model Averaging to account for possible list dependence %%(e.g., sources drawing information from each other or relying on the same source material)
+\item Conduct case studies of select cases to better understand data-generating processes and finetune modeling approach (e.g., Kashmir, Kosovo, ?)
+\end{itemize}
+}
+
+
+
+
+\frame{
+\centering
+\LARGE{Thank you!}
+
+\href{mailto:julianek@umich.edu}{Email me if you have questions or suggestions.}
 }
 
 \end{document}
