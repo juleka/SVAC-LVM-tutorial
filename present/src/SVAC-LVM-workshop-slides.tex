@@ -1,7 +1,7 @@
 \documentclass[xcolor=dvipsnames,12pt]{beamer} %pt10,11,12
 \usefonttheme{serif}
 \usepackage{graphicx}
-%%\usepackage{subfigure}
+\usepackage{subfigure}
 \usepackage{multicol}
 \usepackage[figurename=]{caption}
 %%\usepackage{xcolor}
@@ -107,7 +107,7 @@ In this tutorial, we will only look at reported SVAC with respect  to state forc
 \frametitle{SVAC Provides Three Indicators that Report Prevalence of Wartime Sexual Violence}
 \begin{figure}\centering
 \includegraphics[width=11cm]{../visualize/output/bp-obs-GOV-Sudan-309.pdf}
-\caption{Reported level of engagement in wartime sexual violence by state forces in Sudan according to three sources \hyperlink{SUDAN-est}{\beamerbutton{est}}}
+\caption{Reported level of engagement in wartime sexual violence by state forces in Sudan according to three sources \hyperlink{SUDAN-static}{\beamerbutton{static}}}
 \end{figure}
 \end{frame}
 
@@ -116,7 +116,7 @@ In this tutorial, we will only look at reported SVAC with respect  to state forc
 \frametitle{Another Case... }
 \begin{figure}\centering
 \includegraphics[width=11cm]{../visualize/output/bp-obs-GOV-DR-Congo-Zaire-283.pdf}
-\caption{Reported level of engagement in wartime sexual violence by state forces in DRC according to three sources \hyperlink{DRC-est}{\beamerbutton{est}}}
+\caption{Reported level of engagement in wartime sexual violence by state forces in DRC according to three sources \hyperlink{DRC-static}{\beamerbutton{static}}}
 \end{figure}
 \end{frame}
 
@@ -192,6 +192,7 @@ For each item (i.e., indicator), we estimate an ``item discrimination'' paramete
 \frame{\frametitle{Parametrizing a LVM to Estimate SVAC, III}
 
 There is also an error term $\varepsilon_{itj}$ for each item, which in our case represents observational challenges and coding errors. 
+
 We assume that the error terms are independently drawn from a logistic distribution.
 
 The error term expresses the likelihood of our model.
@@ -202,10 +203,11 @@ The error term expresses the likelihood of our model.
 
 Following our parametrization, we can derive a probability distribution for a given response  to item $j$, and a likelihood function for $\beta$, $\alpha$ and $\theta$ given the data.
 
-If you are interested in the math, please refer to Schnakenberg and Fariss (2014: 7-8). For time constraints, we will limit our tutorial to LVM implementation in R.
+If you are interested in the math, please refer to Schnakenberg and Fariss (2014: 7-8). 
+
+For time constraints, we will limit our tutorial to LVM implementation in R.
 
 }
-
 
 
 \frame{\frametitle{Let's Run Some LVMs!}
@@ -216,8 +218,63 @@ If you are interested in the math, please refer to Schnakenberg and Fariss (2014
 \end{itemize}
 }
 
+\frame{\frametitle{Checking Model Convergence}
+
+We can check whether our model converged successfully by plotting the R-hat statistic. 
+
+If the values remain below 1.1, we conclude model convergence has occurred.
+
+If the values are above 1.1, we would rerun the model with a higher number of iterations until we reach convergence.
+}
+
+\frame{\frametitle{An R-hat Plot for the Static LVM}
 
 
+\begin{figure}\centering
+\includegraphics[width=6cm]{../estimate/output/gg-rhat-SVAC-static.pdf}
+%\caption{ This looks good! }
+\end{figure}
 
+}
+
+\frame{\frametitle{Plotting the $\alpha$ Difficulty Cut-Points}
+
+\begin{figure}
+\subfigure[AI]{\includegraphics[width=3.5cm]{../estimate/output/bp-cp-static-ai.pdf}}
+\subfigure[HRW]{\includegraphics[width=3.5cm]{../estimate/output/bp-cp-static-hrw.pdf}}
+\subfigure[USSD]{\includegraphics[width=3.5cm]{../estimate/output/bp-cp-static-state.pdf}}
+\end{figure}
+}
+
+\frame{\frametitle{Visualizing Our $\theta$ Estimates}
+
+\begin{itemize}
+\item[{\tt \$:}] {\tt cd ../visualize}
+\item[{\tt \$:}] {\tt open -a Rstudio  src/plot-LVM-estimates-by-conflict.R}
+\end{itemize}
+}
+
+\begin{frame}[label=SUDAN-static]
+\frametitle{Static Estimates of the Latent Prevalence of Wartime Sexual Violence}
+\begin{figure}\centering
+\includegraphics[width=11cm]{../visualize/output/pp-static-estimates-Sudan-309.pdf}
+\caption{Estimated level of engagement in wartime sexual violence by state forces in Sudan \hyperlink{SUDAN-obs}{\beamerbutton{obs}}}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[label=DRC-static]
+\frametitle{Our Second Worst Case... }
+\begin{figure}\centering
+\includegraphics[width=11cm]{../visualize/output/pp-static-estimates-DR-Congo-Zaire-283.pdf}
+\caption{Estimated level of engagement in wartime sexual violence by state forces in DRC \hyperlink{DRC-obs}{\beamerbutton{obs}}}
+\end{figure}
+\end{frame}
+
+\frame{\frametitle{The Local Independence Assumption in a Static Model}
+}
+
+\frame{\frametitle{Relaxing the (3) Local Independence Assumption in a Dynamic Model}
+}
 
 \end{document}
