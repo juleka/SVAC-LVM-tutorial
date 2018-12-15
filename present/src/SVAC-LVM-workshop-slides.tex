@@ -97,6 +97,8 @@ While these trends  vary across space, we will likely see higher reporting rates
 \item[{\tt \$:}]  {\tt open -a Rstudio src/import-check-data-main.R}
 \end{itemize}
 
+In this tutorial, we will only look at reported SVAC with respect  to state forces (`GOV').
+
 }
 
 
@@ -144,18 +146,19 @@ How do we deal with converging/diverging information across the three sources? S
 
 
 \begin{itemize}
-\item True SVAC prevalence as a \emph{latent trait} that can't be observed directly but estimated
-\item Available human rights reports  as imperfect SVAC measures due to observational challenges
-\item Human-coded SVAC variables as imperfect measures of human rights reports due to coding error
+\item True SVAC prevalence as a \emph{latent trait} that can't be observed directly but estimated using observed outcomes
+\item Available human rights reports  as imperfect measures of the latent level  due to observational challenges
+\item Human-coded SVAC variables as imperfect measures of human rights reports due to perceptual coding error
 \item Information convergence/divergence across sources as a measure of certainty regarding SVAC prevalence
 \end{itemize}
 
-The logic of latent variable models (LVM) builds on precisely this conceptual approach to measurement. 
+The logic of latent variable models (LVM) follows precisely this conceptual approach to measurement. 
 }
 
 \frame{\frametitle{The Added Value of Latent Variable Models}
 
 \begin{itemize}
+\item Leverage information from multiple sources
 \item Provide probabilistic estimates of a latent trait, i.e., SVAC in our case 
 \item Express  our  uncertainty  regarding the estimates of the latent trait through credible intervals 
 \item Compute the estimated latent trait at the interval-level (instead of ordinal), which simplifies subsequent analysis 
@@ -164,14 +167,17 @@ The logic of latent variable models (LVM) builds on precisely this conceptual ap
 
 }
 
+\frame{\frametitle{How LVMs Are Parametrized}
 
-\frame{
-%% theoretical construct of interest: prevalence of sexual violence committed by GOV troups
-%% assumption that there is an underlying latent trait that can be estimated using observed outcomes (items/responses/reports)
-%% standard ordinal item response model: ordinal indicators
-%% perceptual errors by coders and reporting error by organizations: logistic distribution of the error term
-%% local independence assumption: any two item responses are independent (only related in that they measure the same latent trait) (1) within same country-year, (2) across countries %% within years, (3) across years within countries --> (3) is relaxed 
-%% dynamic: hierarchical priors (prior beliefs) allow estimated latent prevalence of SV to depend on that conflict's value in the previous year
+
+}
+
+\frame{\frametitle{Let's Run Some LVMs!}
+
+\begin{itemize}
+\item[{\tt \$:}] {\tt cd ../estimate}
+\item[{\tt \$:}] {\tt open -a Rstudio  src/estimate-static-SVAC.R}
+\end{itemize}
 }
 
 
