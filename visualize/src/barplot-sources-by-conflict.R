@@ -13,11 +13,11 @@ parser$add_argument("--barplot_function", type="character")
 parser$add_argument("--logfile", type="character")
 arguments <- parser$parse_args()
 
-## use this code if not working with a Makefile
-setwd("~/git/SVAC-LVM-tutorial/")
-arguments <- list(inputfile="import/output/SVAC_main.csv",
-                  barplot_function="visualize/src/barplot-function.R",
-                  logfile="visualize/output/barplot-sources-by-conflict.txt")
+## use this code if not working with a Makefile, add path info
+# setwd("<fill in your personal path>/SVAC-LVM-tutorial/")
+# arguments <- list(inputfile="import/output/SVAC_main.csv",
+#                   barplot_function="visualize/src/barplot-function.R",
+#                   logfile="visualize/output/barplot-sources-by-conflict.txt")
 
 ## read in plotting functions
 source(arguments$barplot_function)

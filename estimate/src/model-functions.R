@@ -11,10 +11,10 @@ make_Rhat_plot <- function(stan_data_out, model_name) {
   ## model_name: 'static' or 'dynamic', depending on which model is being estimated
   
   ## code when using Makefile
-  # output_file_name <- paste('output/gg-rhat-SVAC-', model_name, '.pdf', sep='')
+  output_file_name <- paste('output/gg-rhat-SVAC-', model_name, '.pdf', sep='')
 
   ## code when not using Makefile
-  output_file_name <- paste('estimate/output/gg-rhat-SVAC-', model_name, '.pdf', sep='')
+  # output_file_name <- paste('estimate/output/gg-rhat-SVAC-', model_name, '.pdf', sep='')
   
   print(paste('plotting rhats to' , output_file_name))
   
@@ -48,10 +48,10 @@ plot_cutpoints_by_source <- function(extracted_fit, model_name) {
                                                                extracted_fit[['beta']][,3])))
     
     ## code when using Makefile
-    ## outputfilename <- paste('output/bp-cp-', model_name, '-', sname, '.pdf', sep='')
+    outputfilename <- paste('output/bp-cp-', model_name, '-', sname, '.pdf', sep='')
 
     ## code when not using Makefile 
-    outputfilename <- paste('estimate/output/bp-cp-', model_name, '-', sname, '.pdf', sep='')
+    # outputfilename <- paste('estimate/output/bp-cp-', model_name, '-', sname, '.pdf', sep='')
     
     print(paste('Plotting cut points to', outputfilename))
     pdf(outputfilename, height=8, width=8)

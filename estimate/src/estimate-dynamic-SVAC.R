@@ -20,7 +20,7 @@ parser$add_argument("--outputfile", type='character')
 arguments <- parser$parse_args()
 
 ## declare arguments if not working with Makefile
-# setwd("~/git/SVAC-LVM-tutorial/")
+# setwd("<fill in your personal path>/SVAC-LVM-tutorial/")
 # arguments <- list(inputfile='import/output/SVAC_main.csv',
 #                   STANcode='estimate/src/SVAC_dynamic.stan',
 #                   model_functions='estimate/src/model-functions.R',

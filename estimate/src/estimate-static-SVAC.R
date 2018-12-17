@@ -21,12 +21,12 @@ parser$add_argument("--outputfile", type='character')
 arguments <- parser$parse_args()
 
 ## declare arguments if not working with Makefile
-setwd("~/git/SVAC-LVM-tutorial/")
-arguments <- list(inputfile='import/output/SVAC_main.csv',
-                  STANcode='estimate/src/SVAC_static.stan',
-                  model_functions='estimate/src/model-functions.R',
-                  CONSTANTS='estimate/hand/CONSTANTS.yaml',
-                  outputfile='estimate/output/SVAC_static_est.csv')
+# setwd("<fill in your personal path>/SVAC-LVM-tutorial/")
+# arguments <- list(inputfile='import/output/SVAC_main.csv',
+#                   STANcode='estimate/src/SVAC_static.stan',
+#                   model_functions='estimate/src/model-functions.R',
+#                   CONSTANTS='estimate/hand/CONSTANTS.yaml',
+#                   outputfile='estimate/output/SVAC_static_est.csv')
 
 #the CONSTANTS in the yaml file will declare some additional STAN parameters 
 CONSTANTS <- yaml.load_file(arguments$CONSTANTS)

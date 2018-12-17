@@ -17,7 +17,7 @@ arguments <- parser$parse_args()
 
 ## use below lines of code instead if you do not want to run Makefiles
 ## you will need to fill in the path on your machine where the SVAC-LVM folder is located
-# setwd("<fill in your path>/SVAC-LVM-tutorial/")
+# setwd("<fill in your personal path>/SVAC-LVM-tutorial/")
 # arguments <- list(inputfile='import/input/SVAC-gov-main.csv',
 #                   outputfile='import/output/SVAC_main.csv')
 

@@ -8,8 +8,8 @@
 
 library(argparse)
 
-## use this code if not working with a Makefile 
-# setwd("~/git/SVAC-LVM-tutorial/")
+## use this code if not working with a Makefile, add path info 
+# setwd("<fill in your personal path>/SVAC-LVM-tutorial/")
 # arguments <- list(input_static="estimate/output/SVAC_static_est.csv",
 #                   input_dynamic="estimate/output/SVAC_dynamic_est.csv",
 #                   logfile_static="visualize/output/log-plot-static-estimates.txt",
@@ -61,8 +61,11 @@ make_plots_for_LVM_estimates <- function(type) {
     country <- gsub("'", "-", country)
     country <- gsub(' ', '-', country)
     
+    ## if using Makefile, keep this code
+    outputfile_name <- paste('output/pp-', type, '-estimates-', country, '-', i, '.pdf', sep='')
+    
     ## when not using Makefile
-    outputfile_name <- paste('visualize/output/pp-', type, '-estimates-', country, '-', i, '.pdf', sep='')
+    # outputfile_name <- paste('visualize/output/pp-', type, '-estimates-', country, '-', i, '.pdf', sep='')
     
     pdf(outputfile_name, width=15, height=6)
     par(las=1,  mar=c(4,4,1.5,1), xpd=FALSE)
