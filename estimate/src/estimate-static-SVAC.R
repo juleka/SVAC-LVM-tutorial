@@ -21,12 +21,12 @@ parser$add_argument("--outputfile", type='character')
 arguments <- parser$parse_args()
 
 ## declare arguments if not working with Makefile
-# setwd("~/git/SVAC-LVM-tutorial/")
-# arguments <- list(inputfile='import/output/SVAC_main.csv',
-#                   STANcode='estimate/src/SVAC_static.stan',
-#                   model_functions='estimate/src/model-functions.R',
-#                   CONSTANTS='estimate/hand/CONSTANTS.yaml',
-#                   outputfile='estimate/output/SVAC_static_est.csv')
+setwd("~/git/SVAC-LVM-tutorial/")
+arguments <- list(inputfile='import/output/SVAC_main.csv',
+                  STANcode='estimate/src/SVAC_static.stan',
+                  model_functions='estimate/src/model-functions.R',
+                  CONSTANTS='estimate/hand/CONSTANTS.yaml',
+                  outputfile='estimate/output/SVAC_static_est.csv')
 
 #the CONSTANTS in the yaml file will declare some additional STAN parameters 
 CONSTANTS <- yaml.load_file(arguments$CONSTANTS)
@@ -92,8 +92,8 @@ static.stan.fit <- stan(
   data=stan.data,
   ## iter: number of times simulations will happen, the first half are used for 
   ##   burning in the model and get thrown out, the second half are used for inference and get saved. 
-  ##   To know you have enough iterations, we will calculate the R-hat statistic (Gelman-Rubin statistic) 
-  ##   --> the Rhat statistic has to be as close to 1 possible to ensure that the model has converged
+  ##   To know we have enough iterations, we will calculate the R-hat statistic (Gelman-Rubin statistic) 
+  ##   --> the Rhat statistic has to be as close to 1 as possible to ensure that the model has converged
   iter=CONSTANTS$static_STAN_iter,
   ## chains: designate the number of independent simulations happening at the same time, 
   ## each simulation gets computed in parallel by one processor
@@ -104,7 +104,7 @@ static.stan.fit <- stan(
 )
 
 ## if you like, you can save this stan object like so: (just fyi, it is usually quite big)
-# saveRDS(static.stan.fit, file='output/stan-fit-full.rds')
+# saveRDS(static.stan.fit, file='estimate/output/full-stan-fit.rds')
 
 ## we use the Rhat plot function to check if the model converted, the Rhat's have to be below 1.1
 make_Rhat_plot(static.stan.fit, 'static')

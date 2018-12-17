@@ -2,11 +2,16 @@
 
 random_seed: 146
 
+## A positive integer specifying the number of iterations for each chain (including warmup). The default is 2000.
+## iterations are the number of draws from the posterior distribution
 static_STAN_iter: 2000
 
+## A positive integer specifying the number of Markov chains (MCMC) we use to estimate the model. The default is 4.
 static_STAN_chains: 4
 
-##set the number of cores based on the specifications of your machine
+## Number of cores to use when executing the chains in parallel. The default is 1.
+## The recommendation is to set the cores option to as many processors as the hardware and RAM allow (up to the number of chains).
+## check the specifications of your computer to set the number of cores
 static_STAN_cores: 2
 
 dynamic_STAN_iter: 2000

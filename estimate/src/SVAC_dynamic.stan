@@ -35,8 +35,8 @@ parameters {
 transformed parameters {
     vector[n_all] theta;
 
-    // making theta dynamic here by indexing of the panel lags for theta, multiplying
-    //   by sigma==std
+    // making theta dynamic here by indexing the panel lags for theta, 
+    //   multiplying by standard deviation sigma
     for(ii in 1:n_all){
         if(panel_index_lag[ii]==0){
             theta[ii] = theta_raw[ii];
@@ -49,11 +49,10 @@ transformed parameters {
 }
 
 model{
-    // order does not matter in the model statement
-    //   for one theta, what is the best one for all of them
 
     theta_raw ~ normal(0, 1);
 
+    // sigmal also gets estimated, it is distributed normal
     sigma ~ normal(0, 1);
 
 

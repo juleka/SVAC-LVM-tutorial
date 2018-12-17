@@ -16,12 +16,14 @@ parser$add_argument("--outputfile", type="character")
 arguments <- parser$parse_args()
 
 ## use below lines of code instead if you do not want to run Makefiles
-# setwd("~/git/SVAC-LVM-tutorial/")
-# arguments <- list(inputfile='import/input/SVAC-gov-main.csv', 
+## you will need to fill in the path on your machine where the SVAC-LVM folder is located
+# setwd("<fill in your path>/SVAC-LVM-tutorial/")
+# arguments <- list(inputfile='import/input/SVAC-gov-main.csv',
 #                   outputfile='import/output/SVAC_main.csv')
 
 ## let's import our data
 data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = FALSE)
+summary(data)
 
 ## lets test if we really only have observations (country-years) for the government
 stopifnot(length(data$actor_type==1)==nrow(data))

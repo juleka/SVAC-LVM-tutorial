@@ -61,7 +61,8 @@ make_plots_for_LVM_estimates <- function(type) {
     country <- gsub("'", "-", country)
     country <- gsub(' ', '-', country)
     
-    outputfile_name <- paste('output/pp-', type, '-estimates-', country, '-', i, '.pdf', sep='')
+    ## when not using Makefile
+    outputfile_name <- paste('visualize/output/pp-', type, '-estimates-', country, '-', i, '.pdf', sep='')
     
     pdf(outputfile_name, width=15, height=6)
     par(las=1,  mar=c(4,4,1.5,1), xpd=FALSE)
