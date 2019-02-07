@@ -42,7 +42,7 @@ conflict_prev$rank <- rank(conflict_prev$conflict_prev)# could also use, ties.me
 data <- merge(data, conflict_prev, by='conflictid_new')
 table(data$rank)
 
-## delete no longer needed auxiliary columns
+## delete no longer need auxiliary columns
 data$sum_prev <- data$conflict_prev <- NULL
 
 ## saving the data to a csv file
