@@ -8,6 +8,7 @@
 library(argparse)
 library(yaml)
 library(rstan)
+library(parallel)
 
 rm(list=ls())
 
@@ -85,6 +86,12 @@ stan.data <- list(
 ##  you can pick a seed at random, set it in the CONSTANTS file
 set.seed(CONSTANTS$random_seed)
 
+## The parallel packages helps us detect the number of cores available on our machine for
+##   executing the chains in parallel. In Rstan, the default setting is 1.
+## The recommendation is to set the cores option to as many processors as the hardware and RAM allow 
+##  but not higher than the number of chains we are running.
+avail.cores <- detectCores(logical = FALSE)
+
 ## STAN passes the simulated values back to R in the form of a list, 
 ##   putting all the chains into separate arrays
 static.stan.fit <- stan(
@@ -100,7 +107,7 @@ static.stan.fit <- stan(
   chains=CONSTANTS$static_STAN_chains,
   ## set the number of cores in the CONSTANTS file based on the technical specifications of your machine, 
   ##  i.e., do not exceed the number of cores you have available
-  cores=CONSTANTS$static_STAN_cores
+  cores=avail.cores
 )
 
 ## if you like, you can save this stan object like so: (just fyi, it is usually quite big)

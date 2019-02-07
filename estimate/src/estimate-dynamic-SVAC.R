@@ -8,6 +8,7 @@
 library(argparse)
 library(yaml)
 library(rstan)
+library(parallel)
 
 rm(list=ls())
 
@@ -82,13 +83,14 @@ stan.data <- list(
 )
 
 set.seed(CONSTANTS$random_seed)
+avail.cores <- detectCores(logical = FALSE)
 
 dynamic.stan.fit <- stan(
   file=arguments$STANcode,
   data=stan.data,
   iter=CONSTANTS$dynamic_STAN_iter,
   chains=CONSTANTS$dynamic_STAN_chains,
-  cores=CONSTANTS$dynamic_STAN_cores
+  cores=avail.cores
 )
 
 ## plot Rhats
