@@ -23,7 +23,11 @@ arguments <- parser$parse_args()
 
 ## let's import our data
 data <- read.csv(arguments$inputfile, header=TRUE, sep='|', stringsAsFactors = FALSE)
+str(data)
 summary(data)
+
+## table the observed prevalence source vectors, fill in your own code below
+
 
 ## lets test if we really only have observations (country-years) for the government
 stopifnot(length(data$actor_type==1)==nrow(data))
@@ -31,7 +35,8 @@ stopifnot(length(data$actor_type==1)==nrow(data))
 ## lets add a variable that we can use in plotting later
 data$country_conflict_plot_caption <- paste(data$country, data$conflictid_new)
 
-## lets create a rank, i.e., rank conflicts from highest to lowest reported SV prevalence
+## lets find out the worst cases, and sort the data accordingly
+## we need a rank variable, i.e., this will rank conflicts from highest to lowest reported SV prevalence
 data$sum_prev <- rowSums(data[, c('ai_prev', 'hrw_prev', 'state_prev')], na.rm=TRUE)
 
 conflict_prev <- aggregate(data$sum_prev, by=list(data$conflictid_new), sum)
