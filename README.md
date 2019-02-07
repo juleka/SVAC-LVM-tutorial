@@ -10,4 +10,6 @@ We will be using the free and open-source [R programming language](https://www.r
 
 The organization of this repository follows [HRDAG](https://hrdag.org)'s [principled data processing guidelines](https://hrdag.org/2016/06/14/the-task-is-a-quantum-of-workflow/). This includes the organization of tasks into separate directories (e.g., import/, estimate/, visualize/, present/, etc.), the division of task directories into input/, src/, and output/ directories, and the use of [GNU Make](https://www.gnu.org/software/make/) to achieve a self-documenting workflow. To run a Makefile from your command line, navigate to the relevant task repository (e.g., "$: cd ~/git/SVAC-LVM-tutorial/import/") and execute "$: make -f Makefile". To run Makefiles on Mac OS,  install the XCode Command Line Tools.
 
+You won't be able to access the data when you download this repo to your machine via a browser. Follow [this link](https://www.dropbox.com/s/x8iap0r5lst5slp/SVAC-gov-main.csv?dl=0) to download the data (csv file) directly.
+
 
