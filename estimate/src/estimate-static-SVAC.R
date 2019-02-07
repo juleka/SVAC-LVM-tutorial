@@ -81,15 +81,17 @@ stan.data <- list(
   hrw   = hrw
 )
 
-## for the sampling procedure, we want to reproduce the exact same results every time we run this model
-##  this way, journals and others are able to reproduce our findings
-##  you can pick a seed at random, set it in the CONSTANTS file
+## for the sampling procedure, we want to reproduce the exact same results 
+##   every time we run this model
+##   this way, journals and others are able to reproduce our findings
+##   you can pick a seed at random, set it in the CONSTANTS file
 set.seed(CONSTANTS$random_seed)
 
 ## The parallel packages helps us detect the number of cores available on our machine for
 ##   executing the chains in parallel. In Rstan, the default setting is 1.
-## The recommendation is to set the cores option to as many processors as the hardware and RAM allow 
-##  but not higher than the number of chains we are running.
+## The recommendation is to set the cores option to as many processors 
+##   as the hardware and RAM allow 
+##   but not higher than the number of chains we are running.
 avail.cores <- detectCores(logical = FALSE)
 
 ## STAN passes the simulated values back to R in the form of a list, 
@@ -98,14 +100,18 @@ static.stan.fit <- stan(
   file=arguments$STANcode,
   data=stan.data,
   ## iter: number of times simulations will happen, the first half are used for 
-  ##   burning in the model and get thrown out, the second half are used for inference and get saved. 
-  ##   To know we have enough iterations, we will calculate the R-hat statistic (Gelman-Rubin statistic) 
-  ##   --> the Rhat statistic has to be as close to 1 as possible to ensure that the model has converged
+  ##   burning in the model and get thrown out, the second half are used for 
+  ##  inference and get saved. 
+  ##   To know we have enough iterations, we will calculate the R-hat statistic 
+  ##   (Gelman-Rubin statistic) 
+  ##   --> the Rhat statistic has to be as close to 1 as possible to ensure 
+  ##   that the model has converged
   iter=CONSTANTS$static_STAN_iter,
   ## chains: designate the number of independent simulations happening at the same time, 
   ## each simulation gets computed in parallel by one processor
   chains=CONSTANTS$static_STAN_chains,
-  ## set the number of cores in the CONSTANTS file based on the technical specifications of your machine, 
+  ## set the number of cores in the CONSTANTS file based on the technical 
+  ##  specifications of your machine, 
   ##  i.e., do not exceed the number of cores you have available
   cores=avail.cores
 )
@@ -116,8 +122,9 @@ static.stan.fit <- stan(
 ## we use the Rhat plot function to check if the model converged, the Rhat's have to be below 1.1
 make_Rhat_plot(static.stan.fit, 'static')
 
-# here we extract just the parameters that are interesting to us
-## staticstanout gives us a list of model parameters, i.e., theta, beta and the alpha difficulty cut points
+## here we extract just the parameters that are interesting to us
+##   staticstanout gives us a list of model parameters, 
+##   i.e., theta, beta and the alpha difficulty cut points
 staticstanout <- extract(static.stan.fit)
 
 ## let's plot the cut points that the model estimated
