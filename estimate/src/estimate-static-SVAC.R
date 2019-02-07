@@ -113,7 +113,7 @@ static.stan.fit <- stan(
 ## if you like, you can save this stan object like so: (just fyi, it is usually quite big)
 # saveRDS(static.stan.fit, file='estimate/output/full-stan-fit.rds')
 
-## we use the Rhat plot function to check if the model converted, the Rhat's have to be below 1.1
+## we use the Rhat plot function to check if the model converged, the Rhat's have to be below 1.1
 make_Rhat_plot(static.stan.fit, 'static')
 
 # here we extract just the parameters that are interesting to us
