@@ -1,5 +1,15 @@
 #CONSTANTS.yaml
 
+prev_vecs:
+ - ai_prev
+ - hrw_prev
+ - state_prev
+
+prev_colors:
+  - "#FF000099"
+  - "#FFFF0080"
+  - "#0000FFB3"
+
 random_seed: 146
 
 ## A positive integer specifying the number of iterations for each chain (including warmup). The default is 2000.
