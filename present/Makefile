@@ -14,6 +14,7 @@ output/SVAC-LVM-workshop-slides.pdf: \
 		src/SVAC-LVM-workshop-slides.tex \
 		hand/*.jpg \
 		hand/*.jpeg \
+		../estimate/output/bp-cp-dynamic*.pdf \
 		Makefile
 	pdflatex src/SVAC-LVM-workshop-slides.tex
 	pdflatex src/SVAC-LVM-workshop-slides.tex
