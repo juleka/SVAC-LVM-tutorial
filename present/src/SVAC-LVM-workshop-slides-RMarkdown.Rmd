@@ -1,0 +1,37 @@
+---
+title: "Using Latent Variable Models to Estimate the Prevalence of Sexual Violence in Armed Conflict: An Introduction"
+author: "Jule Krüger, Center for Political Studies, Institute for Social Research, University of Michigan"
+date: \today
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 
+
+This tutorial builds on ongoing research with
+
+![[Ragnhild Nord\r{a}s](https://ragnhildnordas.wordpress.com/)](../hand/RNordaas.jpeg)
+and
+![[Christopher Fariss](http://cfariss.com/)](../hand/CFariss.jpg)
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
